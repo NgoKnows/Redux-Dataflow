@@ -8,7 +8,7 @@ import dispatchAction from 'flux/DispatchAction'
 import { VelocityTransitionGroup } from 'velocity-react'
 import { enterFadeAnimation, leaveFadeAnimation } from '../animations'
 
-import TodoApp from '../components/TodoApp/TodoAppPage'
+import TodoApp from 'components/TodoApp/TodoAppPage'
 import Redux from '../components/Redux/ReduxPage'
 
 

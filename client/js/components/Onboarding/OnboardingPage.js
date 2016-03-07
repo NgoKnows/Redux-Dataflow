@@ -9,7 +9,7 @@ import * as actions from 'flux/actions'
 import { VelocityTransitionGroup } from 'velocity-react'
 import { enterFadeAnimation, leaveFadeAnimation } from '../../animations'
 
-import Overlay from 'reusable/Overlay'
+import Overlay from '../Reusable/Overlay'
 import Dots from './Dots'
 
 class OnboardingPage extends Component {

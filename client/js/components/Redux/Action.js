@@ -25,7 +25,7 @@ class Action extends Component {
         return (
             <div>
                 <Underlined active={active}>
-                    <div style={STYLES.header}>Action</div>
+                    <div style={[STYLES.header, STYLES.active(active)]}>Action</div>
                 </Underlined>
                 <VelocityTransitionGroup
                     component="div"
@@ -33,7 +33,7 @@ class Action extends Component {
                     leave={leaveFadeAnimation}
                 >
                     {Object.keys(currentAction).length !== 0 ?
-                        <div style={STYLES.code} key="ha">
+                        <div style={STYLES.code} key={currentAction.type + payload}>
                             <div>[</div>
                             <div>
                                 <WhiteSpace tabs={1}/>
@@ -46,7 +46,7 @@ class Action extends Component {
                                 </div> : null
                             }
                             <div>]</div>
-                        </div> : null
+                        </div> : <span style={STYLES.noAction} key="blah">No Action is being dispatched!</span>
                     }
                 </VelocityTransitionGroup>
             </div>
@@ -61,16 +61,32 @@ const STYLES = {
         marginBottom: '8px'
     },
 
+    active: (active) => {
+        if (active) {
+            return {
+                fontWeight: 'bold'
+            };
+        } else {
+            return {};
+        }
+    },
+
     code: {
         fontFamily: 'Simplifica',
         overflowWrap: 'break-word',
         letterSpacing: '2px',
-        fontSize: '28px'
+        fontSize: '28px',
+        //height: '50px'
     },
 
     prop: {
         fontWeight: 'bold',
         fontSize: '1.2em'
+    },
+
+    noAction: {
+        fontSize: '30px',
+        //height: '50px'
     }
 };
 

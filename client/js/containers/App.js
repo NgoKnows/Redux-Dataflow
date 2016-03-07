@@ -8,13 +8,13 @@ import dispatchAction from 'flux/DispatchAction'
 import { VelocityTransitionGroup } from 'velocity-react'
 import { enterFadeAnimation, leaveFadeAnimation } from '../animations'
 
-import TodoApp from 'components/TodoApp/TodoAppPage'
+import TodoApp from '../components/TodoApp/TodoAppPage'
 import Redux from '../components/Redux/ReduxPage'
 
 
 class App extends Component {
     componentDidMount() {
-        //setTimeout(() => this.props.routerActions.push('onboarding/intro'), 200);
+        setTimeout(() => this.props.routerActions.push('onboarding/intro'), 200);
     }
 
     render() {
@@ -28,6 +28,7 @@ class App extends Component {
                         todos={todos}
                         todoInput={todoInput}
                         actions={actions}
+                        dispatching={redux.dispatching}
                     />
                     <Redux
                         redux={redux}

@@ -10,7 +10,7 @@ class ReduxPage extends Component {
         const { todos, todoInput, redux } = this.props;
 
         return (
-            <div style={STYLES.container}>
+            <div style={STYLES.container(redux.dispatching)}>
                 <Action
                     active={redux.section === 'action'}
                     currentAction={redux.currentAction}
@@ -32,15 +32,18 @@ class ReduxPage extends Component {
 }
 
 const STYLES = {
-    container: {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        padding: '16px',
-        width: '35%',
-        height: '100vh',
-        backgroundColor: 'rgba(211, 211, 211, 0.5)',
-        boxSizing: 'border-box'
+    container: (dispatching) => {
+        return {
+            zIndex: 99,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            padding: '16px',
+            width: '35%',
+            minHeight: '100vh',
+            backgroundColor: dispatching ? 'white' : 'rgba(211, 211, 211, 0.5)',
+            boxSizing: 'border-box'
+        }
     }
 };
 

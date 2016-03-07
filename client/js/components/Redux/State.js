@@ -11,10 +11,10 @@ class State extends Component {
         return (
             <div>
                 <Underlined active={active}>
-                    <div style={STYLES.header}>State</div>
+                    <div style={[STYLES.header, STYLES.active(active)]}>State</div>
                 </Underlined>
                 <div style={STYLES.code}>
-                    <div>[</div>
+                    <div>{'{'}</div>
                     <div>
                         <WhiteSpace tabs={1} />
                         <span style={STYLES.prop}>todos:</span> [
@@ -23,7 +23,7 @@ class State extends Component {
                       return (
                           <div style={[STYLES.unchanged, STYLES.changed(changed.todos === index)]} key={todo.id}>
                               <WhiteSpace tabs={2} />
-                              {`[text: ${todo.text}, done: ${todo.completed}]`}
+                              {`{text: ${todo.text}, done: ${todo.completed}}`}
                           </div>
                       )
                     })}
@@ -35,7 +35,7 @@ class State extends Component {
                         <WhiteSpace tabs={1} />
                         <span style={[STYLES.prop]}>todoInput:</span> "{todoInput}"
                     </div>
-                    <div>]</div>
+                    <div>{'}'}</div>
                 </div>
             </div>
         );
@@ -46,6 +46,16 @@ const STYLES = {
     header: {
         fontSize: '36px',
         marginBottom: '8px'
+    },
+
+    active: (active) => {
+        if (active) {
+            return {
+                fontWeight: 'bold'
+            };
+        } else {
+            return {};
+        }
     },
     
     code: {
@@ -61,7 +71,7 @@ const STYLES = {
     },
 
     unchanged: {
-        transition: 'background-color 1.0s ease-out',
+        transition: 'background-color 1s ease-out',
     },
 
     changed: (changed) => {

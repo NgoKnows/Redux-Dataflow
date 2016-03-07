@@ -17,7 +17,7 @@ class OnboardingPage extends Component {
         const { location, routerActions } = this.props;
         return (
             <div>
-                <Overlay>
+                <Overlay zIndex={99}>
                     <div style={STYLES.infoContainer}>
                         <i
                             className="fa fa-times"

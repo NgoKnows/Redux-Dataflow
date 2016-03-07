@@ -14,12 +14,12 @@ class Reducer extends Component {
         return (
             <div>
                 <Underlined active={active}>
-                    <div style={STYLES.header}>Reducer</div>
+                    <div style={[STYLES.header, STYLES.active(active)]}>Reducer</div>
                 </Underlined>
                 <div style={STYLES.code}>
                     <div>
                         <WhiteSpace tabs={0} />
-                        <span>switch(action.type)[</span>
+                        <span>switch(action.type){'{'}</span>
                     </div>
                     {cases.map((value, index) => {
                        return (
@@ -36,7 +36,7 @@ class Reducer extends Component {
                     })}
                     <div>
                         <WhiteSpace tabs={0} />
-                        <span>]</span>
+                        <span>{'}'}</span>
                     </div>
                 </div>
             </div>
@@ -51,6 +51,16 @@ const STYLES = {
         fontSize: '36px',
         //textDecoration: 'underline',
         marginBottom: '8px'
+    },
+
+    active: (active) => {
+        if (active) {
+            return {
+                fontWeight: 'bold'
+            };
+        } else {
+            return {};
+        }
     },
 
     code: {

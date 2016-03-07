@@ -49,6 +49,8 @@ class Reducer extends Component {
 const STYLES = {
     header: {
         fontSize: '36px',
+        fontStyle: 'italic',
+        color: 'grey',
         //textDecoration: 'underline',
         marginBottom: '8px'
     },

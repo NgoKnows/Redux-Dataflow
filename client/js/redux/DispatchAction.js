@@ -29,7 +29,7 @@ export default function dispatchAction(actionName, param) {
 
                     setTimeout(() => {
                         fulfill();
-                    }, 2000);
+                    }, 2200);
                 });
             } else {
                 actionPromise = new Promise((fulfill, reject) => {
@@ -39,7 +39,7 @@ export default function dispatchAction(actionName, param) {
 
                     setTimeout(() => {
                         fulfill();
-                    }, 2000);
+                    }, 2200);
                 });
             }
 
@@ -54,7 +54,7 @@ export default function dispatchAction(actionName, param) {
                             setTimeout(() => {
                                 dispatch(actions.setReducerLine(i));
                                 fulfill();
-                            }, 1000 * (i + 1));
+                            }, 1200 * (i + 1));
                         }))
 
                         if (cases[i].includes(getState().redux.currentAction.type)) {
@@ -70,7 +70,7 @@ export default function dispatchAction(actionName, param) {
                             dispatch(actions.setSection('state'));
                             dispatch(actions.setReducerLine(null));
                             fulfill();
-                        }, 1000);
+                        }, 1200);
                     });
 
                     let changed = {};

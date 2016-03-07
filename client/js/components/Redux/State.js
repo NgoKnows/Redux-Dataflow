@@ -45,6 +45,8 @@ class State extends Component {
 const STYLES = {
     header: {
         fontSize: '36px',
+        fontStyle: 'italic',
+        color: 'grey',
         marginBottom: '8px'
     },
 

@@ -34,7 +34,7 @@ class Action extends Component {
                 >
                     {Object.keys(currentAction).length !== 0 ?
                         <div style={STYLES.code} key={currentAction.type + payload}>
-                            <div>[</div>
+                            <div>{'{'}</div>
                             <div>
                                 <WhiteSpace tabs={1}/>
                                 <span style={STYLES.prop}>type:</span> "{currentAction.type}"
@@ -45,7 +45,7 @@ class Action extends Component {
                                     <span style={STYLES.prop}>{payload}:</span> {renderValue(currentAction[payload])}
                                 </div> : null
                             }
-                            <div>]</div>
+                            <div>{'}'}</div>
                         </div> : <span style={STYLES.noAction} key="blah">No Action is being dispatched!</span>
                     }
                 </VelocityTransitionGroup>
@@ -57,6 +57,8 @@ class Action extends Component {
 const STYLES = {
     header: {
         fontSize: '36px',
+        fontStyle: 'italic',
+        color: 'grey',
         //textDecoration: 'underline',
         marginBottom: '8px'
     },
@@ -85,7 +87,8 @@ const STYLES = {
     },
 
     noAction: {
-        fontSize: '30px',
+        fontSize: '36px',
+        fontFamily: 'Simplifica',
         //height: '50px'
     }
 };

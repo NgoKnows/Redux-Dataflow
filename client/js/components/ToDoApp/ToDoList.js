@@ -1,6 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import Radium from 'radium'
 
+import { VelocityTransitionGroup } from 'velocity-react'
+import { enterFlipAnimation, leaveFlipAnimation } from '../../animations'
+
 import CrossedOut from '../Reusable/CrossedOut'
 
 class ToDoList extends Component {
@@ -8,23 +11,30 @@ class ToDoList extends Component {
         const { todos, actions } = this.props;
         return (
             <div style={STYLES.container}>
-                {todos.map((element, index) => {
-                    return (
-                        <div style={STYLES.todo}>
-                            <div style={STYLES.name}>
-                                {this.renderCheckBox(element.completed, index)}
-                                <CrossedOut completed={element.completed}>
-                                    <div style={STYLES.text}>{element.text}</div>
-                                </CrossedOut>
+                <VelocityTransitionGroup
+                    component="div"
+                    enter={enterFlipAnimation}
+                    leave={leaveFlipAnimation}
+                    style={STYLES.todoContainer}
+                >
+                    {todos.map((element, index) => {
+                        return (
+                            <div style={STYLES.todo} key={element.id}>
+                                <div style={STYLES.name}>
+                                    {this.renderCheckBox(element.completed, index)}
+                                    <CrossedOut completed={element.completed}>
+                                        <div style={STYLES.text}>{element.text}</div>
+                                    </CrossedOut>
+                                </div>
+                                <i
+                                    className="fa fa-times"
+                                    style={STYLES.x}
+                                    onClick={() => actions.dispatchAction('removeTodo', index)}
+                                />
                             </div>
-                            <i
-                                className="fa fa-times"
-                                style={STYLES.x}
-                                onClick={() => actions.removeTodo(index)}
-                            />
-                        </div>
-                    )
-                })}
+                        )
+                    })}
+                </VelocityTransitionGroup>
             </div>
         );
     }
@@ -37,7 +47,7 @@ class ToDoList extends Component {
                 <i
                     className="fa fa-check-circle-o"
                     style={[STYLES.checkbox, STYLES.selected]}
-                    onClick={() => actions.toggleTodo(index)}
+                    onClick={() => actions.dispatchAction('toggleTodo' ,index)}
                 />
             )
         } else {
@@ -45,7 +55,7 @@ class ToDoList extends Component {
                 <i
                     className="fa fa-circle-o"
                     style={STYLES.checkbox}
-                    onClick={() => actions.toggleTodo(index)}
+                    onClick={() => actions.dispatchAction('toggleTodo' ,index)}
                 />
             )
         }
@@ -64,6 +74,7 @@ const STYLES = {
         justifyContent: 'space-between',
         alignItems: 'center',
         marginBottom: '24px'
+
     },
 
     name: {
@@ -91,10 +102,13 @@ const STYLES = {
         //transition: 'opacity 5s ease-out',
 
     },
-
     selected: {
         color: '#28EDB6',
         opacity: 1
+    },
+
+    todoContainer: {
+        marginBottom: '24px'
     }
 };
 

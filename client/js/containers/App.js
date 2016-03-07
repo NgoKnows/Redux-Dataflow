@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import { routerActions } from 'react-router-redux'
-import * as actions from 'flux/actions'
+import dispatchAction from 'flux/DispatchAction'
 
 import { VelocityTransitionGroup } from 'velocity-react'
 import { enterFadeAnimation, leaveFadeAnimation } from '../animations'
@@ -14,11 +14,12 @@ import Redux from '../components/Redux/ReduxPage'
 
 class App extends Component {
     componentDidMount() {
-        setTimeout(() => this.props.routerActions.push('onboarding/intro'), 300);
+        //setTimeout(() => this.props.routerActions.push('onboarding/intro'), 200);
     }
 
     render() {
-        const { todos, todoInput, actions, routerActions } = this.props;
+        const { todos, todoInput, todosRedux, todoInputRedux, redux,
+            actions, routerActions } = this.props;
 
         return (
             <div style={STYLES.container}>
@@ -29,13 +30,15 @@ class App extends Component {
                         actions={actions}
                     />
                     <Redux
-                        todos={todos}
-                        todoInput={todoInput}
+                        redux={redux}
+                        todos={todosRedux}
+                        todoInput={todoInputRedux}
                     />
                 </div>
                 <VelocityTransitionGroup
                     enter={enterFadeAnimation}
-                    leave={leaveFadeAnimation}>
+                    leave={leaveFadeAnimation}
+                >
                     {this.props.children}
                 </VelocityTransitionGroup>
             </div>
@@ -61,13 +64,16 @@ App.propTypes = {}
 function mapStateToProps(state) {
     return {
         todos: state.todos,
-        todoInput: state.todoInput
+        todoInput: state.todoInput,
+        todosRedux: state.todosRedux,
+        todoInputRedux: state.todoInputRedux,
+        redux: state.redux
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        actions : bindActionCreators(actions, dispatch),
+        actions : bindActionCreators({dispatchAction}, dispatch),
         routerActions : bindActionCreators(routerActions, dispatch)
     };
 }

@@ -2,3 +2,15 @@ export const SET_TODO_INPUT = 'SET_TODO_INPUT';
 export const ADD_TODO = 'ADD_TODO';
 export const REMOVE_TODO = 'REMOVE_TODO';
 export const TOGGLE_TODO = 'TOGGLE_TODO';
+
+export const SET_TODO_INPUT_REDUX = 'SET_TODO_INPUT_REDUX';
+export const ADD_TODO_REDUX = 'ADD_TODO_REDUX';
+export const REMOVE_TODO_REDUX = 'REMOVE_TODO_REDUX';
+export const TOGGLE_TODO_REDUX = 'TOGGLE_TODO_REDUX';
+
+export const SET_DISPATCHING = 'SET_DISPATCHING';
+export const SET_CURRENT_ACTION = 'SET_CURRENT_ACTION';
+export const SET_REDUCER_LINE = 'SET_REDUCER_LINE';
+export const SET_SPEED = 'SET_SPEED';
+export const SET_CHANGED = 'SET_CHANGED';
+export const SET_SECTION = 'SET_SECTION';

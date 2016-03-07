@@ -5,8 +5,6 @@ class WhiteSpace extends Component {
     render() {
         const { tabs } = this.props;
 
-        console.log(tabs)
-
         return (
             <span style={STYLES(tabs)}></span>
         );

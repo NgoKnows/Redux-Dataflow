@@ -134,7 +134,7 @@ const STYLES = {
 
             main: {
                 fontFamily: 'Simplifica',
-                fontSize: '30px',
+                fontSize: '32px',
                 letterSpacing: '0.3px'
             }
         }

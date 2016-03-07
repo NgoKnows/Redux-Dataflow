@@ -51,6 +51,16 @@ span.line {
     -webkit-transition: width 0.25s ease-out;
 }
 
+span.underline {
+    display:inline-block;
+    position:absolute;
+    left:0;
+    bottom:16px;
+    width:0;
+    border-top:2px solid black;
+    -webkit-transition: width 0.25s ease-out;
+}
+
 .definition {
     font-size: 28px !important;
     margin-left: 15px !important;

@@ -19,7 +19,7 @@ class Definition extends Component {
                     multiline={true}
                 >
                     {definition.map((value) => {
-                        return <div>{value}<br/></div>
+                        return <div key={value}>{value}<br/></div>
                     })}
                 </ReactTooltip>
             </span>

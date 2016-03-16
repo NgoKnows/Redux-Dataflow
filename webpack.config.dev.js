@@ -19,8 +19,7 @@ module.exports = {
             reusable: path.join(ROOT_DIR, 'client', 'js', 'components', 'reusable'),
             flux: path.join(ROOT_DIR, 'client', 'js', 'redux'),
             js: path.join(ROOT_DIR, 'client', 'js'),
-            images: path.join(ROOT_DIR, 'client', 'images'),
-            d3: path.join(ROOT_DIR, 'client', 'js', 'd3'),
+            images: path.join(ROOT_DIR, 'client', 'images')
         }
     },
 

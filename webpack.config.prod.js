@@ -17,8 +17,7 @@ module.exports = {
             containers: path.join(ROOT_DIR, 'client', 'js', 'containers'),
             flux: path.join(ROOT_DIR, 'client', 'js', 'redux'),
             js: path.join(ROOT_DIR, 'client', 'js'),
-            images: path.join(ROOT_DIR, 'client', 'images'),
-            d3: path.join(ROOT_DIR, 'client', 'js', 'd3'),
+            images: path.join(ROOT_DIR, 'client', 'images')
         }
     },
 

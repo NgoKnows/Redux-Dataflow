@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import Radium from 'radium'
 
+import { OnboardingTitle } from './OnboardingTemplate'
 import WhiteSpace from '../Reusable/WhiteSpace'
+import Separator from '../Reusable/Separator'
 import ReactTooltip from 'react-tooltip'
 
 class OnboardingAction extends Component {
@@ -9,16 +11,19 @@ class OnboardingAction extends Component {
     render() {
         return (
             <div style={STYLES.container}>
-                <div style={STYLES.title.main}>
-                    State is Read-Only - <span style={STYLES.emphasis}>Actions</span>
-                </div>
+                <OnboardingTitle
+                    description="State is Read-Only"
+                    name="Actions"
+                />
                 <div style={STYLES.content.container}>
                     <ul style={STYLES.content.list}>
                         <li style={STYLES.content.listItem}>The only way to mutate state is to dispatch an action</li>
                         <li style={STYLES.content.listItem}>There is essence, only one way to change state</li>
                         <li style={STYLES.content.listItem}>An action is simply a JavaScript object which describes what is happening</li>
                     </ul>
-                    <div style={STYLES.separator}/>
+
+                    <Separator />
+
                     <div style={STYLES.content.display.container}>
                         <div style={STYLES.content.display.title}>
                             What does an <span style={STYLES.emphasis}>Action</span> look like?
@@ -63,18 +68,6 @@ const STYLES = {
         width: '90%'
     },
 
-    title: {
-        main: {
-            fontSize: '36px'
-        }
-    },
-
-    emphasis: {
-        fontStyle: 'italic',
-        //textDecoration: 'underline',
-        color: '#23B6F1'
-    },
-
     content: {
         container: {
             marginTop: '36px',
@@ -113,16 +106,9 @@ const STYLES = {
 
     },
 
-    separator: {
-        borderLeft: '1px solid black',
-        marginRight: '24px',
-        marginLeft: '24px'
-    },
-
     example: {
         transition: 'background-color 0.4s ease-out',
         cursor: 'pointer',
-        //textDecoration: 'underline',
         ':hover' : {
             backgroundColor: 'rgba(255,255,0,1)',
         }

@@ -19,7 +19,11 @@ class Definition extends Component {
                     multiline={true}
                 >
                     {definition.map((value) => {
-                        return <div key={value}>{value}<br/></div>
+                        return (
+                            <div key={value}>
+                                {value}<br/>
+                            </div>
+                        )
                     })}
                 </ReactTooltip>
             </span>
@@ -28,13 +32,15 @@ class Definition extends Component {
 }
 
 const STYLES = {
-    word: {
-        textDecoration: 'underline',
-        cursor: 'pointer'
+    word : {
+        textDecoration : 'underline',
+        cursor         : 'pointer'
     }
 };
 
-Definition.propTypes = {};
-Definition.defaultProps = {};
+Definition.propTypes = {
+    word       : PropTypes.string.isRequired,
+    definition : PropTypes.array.isRequired
+};
 
 export default Radium(Definition);

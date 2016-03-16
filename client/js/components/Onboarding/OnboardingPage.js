@@ -15,6 +15,7 @@ import Dots from './Dots'
 class OnboardingPage extends Component {
     render() {
         const { location, routerActions } = this.props;
+
         return (
             <div>
                 <Overlay zIndex={99}>
@@ -27,7 +28,7 @@ class OnboardingPage extends Component {
                         <VelocityTransitionGroup
                             component="div"
                             style={STYLES.contentContainer}>
-                            {React.cloneElement(this.props.children, {key: 0})}
+                            {React.cloneElement(this.props.children, {key: this.props.location.pathname})}
                         </VelocityTransitionGroup>
                         <Dots
                             path={this.props.location.pathname}
@@ -64,8 +65,7 @@ const STYLES = {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center',
-        //width: '90%'
+        alignItems: 'center'
     },
 
     x: {
@@ -82,8 +82,7 @@ OnboardingPage.propTypes = {};
 OnboardingPage.defaultProps = {};
 
 function mapStateToProps(state, ownProps) {
-    return {
-    };
+    return {};
 }
 
 function mapDispatchToProps(dispatch) {

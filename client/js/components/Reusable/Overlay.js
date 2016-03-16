@@ -3,8 +3,10 @@ import Radium from 'radium'
 
 class Overlay extends Component {
     render() {
+        const { zIndex } = this.props;
+
         return (
-            <div style={STYLES(this.props.zIndex)}>
+            <div style={STYLES(zIndex)}>
                 {this.props.children}
             </div>
         );
@@ -21,12 +23,17 @@ const STYLES = (zIndex) => {
         left: 0,
         height: '100%',
         width: '100%',
-        zIndex,
-        backgroundColor: 'rgba(0,0,0,0.5)'
+        backgroundColor: 'rgba(0,0,0,0.5)',
+        zIndex
     }
 };
 
-Overlay.propTypes = {};
-Overlay.defaultProps = {};
+Overlay.propTypes = {
+    zIndex : PropTypes.number
+};
+
+Overlay.defaultProps = {
+    zIndex : 0
+};
 
 export default Radium(Overlay);

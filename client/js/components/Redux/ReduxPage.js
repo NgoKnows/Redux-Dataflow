@@ -34,15 +34,15 @@ class ReduxPage extends Component {
 const STYLES = {
     container: (dispatching) => {
         return {
-            zIndex: 99,
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            padding: '16px',
-            width: '35%',
-            minHeight: '100vh',
-            backgroundColor: dispatching ? 'white' : 'rgba(211, 211, 211, 0.5)',
-            boxSizing: 'border-box'
+            backgroundColor : dispatching ? 'white' : 'rgba(211, 211, 211, 0.5)',
+            boxSizing       : 'border-box',
+            display         : 'flex',
+            flexDirection   : 'column',
+            justifyContent  : 'space-between',
+            minHeight       : '100vh',
+            padding         : '16px',
+            width           : '35%',
+            zIndex          : 99
         }
     }
 };

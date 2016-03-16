@@ -1,11 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import Radium from 'radium'
 
-import { VelocityTransitionGroup } from 'velocity-react'
-import { enterFadeAnimation, leaveFadeAnimation } from '../../animations'
-
+import ReduxCode from './ReduxCode'
+import FadeAnimation from '../Animation/FadeAnimation'
 import WhiteSpace from '../Reusable/WhiteSpace'
-import Underlined from '../Reusable/Underlined'
 
 class Action extends Component {
     render() {
@@ -22,16 +20,10 @@ class Action extends Component {
                 }
             }
         }
+
         return (
-            <div>
-                <Underlined active={active}>
-                    <div style={[STYLES.header, STYLES.active(active)]}>Action</div>
-                </Underlined>
-                <VelocityTransitionGroup
-                    component="div"
-                    enter={enterFadeAnimation}
-                    leave={leaveFadeAnimation}
-                >
+            <ReduxCode active={active} name="Action">
+                <FadeAnimation>
                     {Object.keys(currentAction).length !== 0 ?
                         <div style={STYLES.code} key={currentAction.type + payload}>
                             <div>{'{'}</div>
@@ -48,39 +40,13 @@ class Action extends Component {
                             <div>{'}'}</div>
                         </div> : <span style={STYLES.noAction} key="blah">No Action is being dispatched!</span>
                     }
-                </VelocityTransitionGroup>
-            </div>
+                </FadeAnimation>
+            </ReduxCode>
         );
     }
 }
 
 const STYLES = {
-    header: {
-        fontSize: '36px',
-        fontStyle: 'italic',
-        color: 'grey',
-        //textDecoration: 'underline',
-        marginBottom: '8px'
-    },
-
-    active: (active) => {
-        if (active) {
-            return {
-                fontWeight: 'bold'
-            };
-        } else {
-            return {};
-        }
-    },
-
-    code: {
-        fontFamily: 'Simplifica',
-        overflowWrap: 'break-word',
-        letterSpacing: '2px',
-        fontSize: '28px',
-        //height: '50px'
-    },
-
     prop: {
         fontWeight: 'bold',
         fontSize: '1.2em'

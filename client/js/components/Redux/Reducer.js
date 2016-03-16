@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import Radium from 'radium'
 
+import ReduxCode from './ReduxCode'
 import WhiteSpace from '../Reusable/WhiteSpace'
-import Underlined from '../Reusable/Underlined'
 
 const cases = ['case ADD_TODO:', 'case REMOVE_TODO:',
     'case TOGGLE_TODO:', 'case SET_TODO_INPUT:'];
@@ -12,34 +12,29 @@ class Reducer extends Component {
         const { reducerLine, currentAction, active } = this.props;
 
         return (
-            <div>
-                <Underlined active={active}>
-                    <div style={[STYLES.header, STYLES.active(active)]}>Reducer</div>
-                </Underlined>
-                <div style={STYLES.code}>
-                    <div>
-                        <WhiteSpace tabs={0} />
-                        <span>switch(action.type){'{'}</span>
-                    </div>
-                    {cases.map((value, index) => {
-                       return (
-                            <div
-                                style={[
-                                STYLES.selected(index === reducerLine, value.includes(currentAction.type))
-                                ]}
-                                key={index}
-                            >
-                                <WhiteSpace tabs={1} />
-                                <span>{value}</span>
-                            </div>
-                        );
-                    })}
-                    <div>
-                        <WhiteSpace tabs={0} />
-                        <span>{'}'}</span>
-                    </div>
+            <ReduxCode active={active} name="Reducer">
+                <div>
+                    <WhiteSpace tabs={0} />
+                    <span>switch(action.type){'{'}</span>
                 </div>
-            </div>
+                {cases.map((value, index) => {
+                   return (
+                        <div
+                            style={[
+                            STYLES.selected(index === reducerLine, value.includes(currentAction.type))
+                            ]}
+                            key={index}
+                        >
+                            <WhiteSpace tabs={1} />
+                            <span>{value}</span>
+                        </div>
+                    );
+                })}
+                <div>
+                    <WhiteSpace tabs={0} />
+                    <span>{'}'}</span>
+                </div>
+            </ReduxCode>
         );
     }
 }

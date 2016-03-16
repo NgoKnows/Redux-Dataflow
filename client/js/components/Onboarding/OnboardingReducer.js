@@ -1,30 +1,35 @@
 import React, { Component, PropTypes } from 'react';
 import Radium from 'radium'
 
+import { OnboardingTitle, OnboardingList } from './OnboardingTemplate'
 import WhiteSpace from '../Reusable/WhiteSpace'
+import Separator from '../Reusable/Separator'
 import Definition from '../Reusable/Definition'
 import ReactTooltip from 'react-tooltip'
 
 const pureDefinition = ['A pure function is a function that when it ', 'gets the same input, it always returns', 'the same output, and has no side-effects'];
 
 class OnboardingReducer extends Component {
-
     render() {
         return (
             <div style={STYLES.container}>
-                <div style={STYLES.title.main}>
-                    Changes are made with pure functions - <span style={STYLES.emphasis}>Reducers</span>
-                </div>
+                <OnboardingTitle
+                    description="Changes are made with pure functions"
+                    name="Reducers"
+                    style={STYLES.title}
+                />
                 <div style={STYLES.content.container}>
-                    <ul style={STYLES.content.list}>
+                    <OnboardingList>
                         <li style={STYLES.content.listItem}>
                             A reducer is a <Definition word="pure function" definition={pureDefinition}/>, which takes the previous state and an action, and returns a new state
                         </li>
                         <li style={STYLES.content.listItem}>
                             Essentially Reducers interpret actions, and determine how actions, should change the state
                         </li>
-                    </ul>
-                    <div style={STYLES.separator}/>
+                    </OnboardingList>
+
+                    <Separator />
+
                     <div style={STYLES.content.display.container}>
                         <div style={STYLES.content.display.title}>
                             What does a <span style={STYLES.emphasis}>Reducer</span> look like?
@@ -68,11 +73,9 @@ class OnboardingReducer extends Component {
                                 state, we are creating a new array, and returning that.
                             </ReactTooltip>
 
-
                             <div><WhiteSpace tabs={2}/>{'case \'REMOVE_TODO\':'}</div>
                             <div><WhiteSpace tabs={3}/>{'//code to remove todo'}</div>
-
-                                </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -90,15 +93,12 @@ const STYLES = {
     },
 
     title: {
-        main: {
-            fontSize: '32px',
-            textAlign: 'center'
-        }
+        fontSize: '32px',
+        textAlign: 'center'
     },
 
     emphasis: {
         fontStyle: 'italic',
-        //textDecoration: 'underline',
         color: '#23B6F1'
     },
 
@@ -144,18 +144,10 @@ const STYLES = {
     example: {
         transition: 'background-color 0.4s ease-out',
         cursor: 'pointer',
-        //textDecoration: 'underline',
         ':hover' : {
             backgroundColor: 'rgba(255,255,0,1)',
         }
-    },
-
-    separator: {
-        borderLeft: '1px solid black',
-        marginRight: '24px',
-        marginLeft: '24px'
     }
-
 };
 
 OnboardingReducer.propTypes = {};

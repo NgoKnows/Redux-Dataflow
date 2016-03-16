@@ -1,43 +1,38 @@
 import React, { Component, PropTypes } from 'react';
 import Radium from 'radium'
 
+import ReduxCode from './ReduxCode'
 import WhiteSpace from '../Reusable/WhiteSpace'
-import Underlined from '../Reusable/Underlined'
 
 class State extends Component {
     render() {
         const { todos, todoInput, changed, active } = this.props;
 
         return (
-            <div>
-                <Underlined active={active}>
-                    <div style={[STYLES.header, STYLES.active(active)]}>State</div>
-                </Underlined>
-                <div style={STYLES.code}>
-                    <div>{'{'}</div>
-                    <div>
-                        <WhiteSpace tabs={1} />
-                        <span style={STYLES.prop}>todos:</span> [
-                    </div>
-                    {todos.map((todo, index) => {
-                      return (
-                          <div style={[STYLES.unchanged, STYLES.changed(changed.todos === index)]} key={todo.id}>
-                              <WhiteSpace tabs={2} />
-                              {`{text: ${todo.text}, done: ${todo.completed}}`}
-                          </div>
-                      )
-                    })}
-                    <div>
-                        <WhiteSpace tabs={1} />
-                        ] ,
-                    </div>
-                    <div style={[STYLES.unchanged, STYLES.changed(changed.todoInput)]}>
-                        <WhiteSpace tabs={1} />
-                        <span style={[STYLES.prop]}>todoInput:</span> "{todoInput}"
-                    </div>
-                    <div>{'}'}</div>
+            <ReduxCode active={active} name="State">
+                <div>{'{'}</div>
+                <div>
+                    <WhiteSpace tabs={1} />
+                    <span style={STYLES.prop}>todos:</span> [
                 </div>
-            </div>
+                {todos.map((todo, index) => {
+                  return (
+                      <div style={[STYLES.unchanged, STYLES.changed(changed.todos === index)]} key={todo.id}>
+                          <WhiteSpace tabs={2} />
+                          {`{text: ${todo.text}, done: ${todo.completed}}`}
+                      </div>
+                  )
+                })}
+                <div>
+                    <WhiteSpace tabs={1} />
+                    ] ,
+                </div>
+                <div style={[STYLES.unchanged, STYLES.changed(changed.todoInput)]}>
+                    <WhiteSpace tabs={1} />
+                    <span style={[STYLES.prop]}>todoInput:</span> "{todoInput}"
+                </div>
+                <div>{'}'}</div>
+            </ReduxCode>
         );
     }
 }

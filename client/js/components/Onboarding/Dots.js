@@ -83,7 +83,7 @@ const STYLES = {
                 width: '20px'
             }
         } else {
-            return null
+            return {};
         }
     }
 };

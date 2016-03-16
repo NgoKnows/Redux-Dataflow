@@ -7,23 +7,15 @@ class CrossedOut extends Component {
 
         return (
             <span className="line_wrap">
-                <span style={STYLES.completed(completed)} className="line"></span>
+                <span style={STYLES(completed)} className="line" />
                 {this.props.children}
             </span>
         );
     }
 }
 
-const STYLES = {
-    completed(completed) {
-        if (completed) {
-            return {
-                width: '100%'
-            };
-        } else {
-            return {};
-        }
-    }
+const STYLES = (completed) => {
+    return completed ? { width: '100%' } : {};
 }
 
 CrossedOut.propTypes = {

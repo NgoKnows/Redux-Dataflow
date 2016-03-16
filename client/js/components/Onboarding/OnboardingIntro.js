@@ -43,7 +43,6 @@ const STYLES = {
 
     bold: {
         fontStyle: 'italic',
-        //textDecoration: 'underline',
         color: '#23B6F1'
     }
 };

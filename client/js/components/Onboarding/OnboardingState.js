@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import Radium from 'radium'
 
+import { OnboardingTitle } from './OnboardingTemplate'
 import WhiteSpace from '../Reusable/WhiteSpace'
+import Separator from '../Reusable/Separator'
 import ReactTooltip from 'react-tooltip'
 
 class OnboardingState extends Component {
@@ -9,15 +11,18 @@ class OnboardingState extends Component {
     render() {
         return (
             <div style={STYLES.container}>
-                <div style={STYLES.title.main}>
-                    Single Source of Truth - <span style={STYLES.emphasis}>State</span>
-                </div>
+                <OnboardingTitle
+                    description="Single Source of Truth"
+                    name="State"
+                />
                 <div style={STYLES.content.container}>
                     <ul style={STYLES.content.list}>
                         <li style={STYLES.content.listItem}>All of your app's state lives in one object tree.</li>
                         <li style={STYLES.content.listItem}>Allows for easier debugging because all of state is in one place</li>
                     </ul>
-                    <div style={STYLES.separator}/>
+
+                    <Separator />
+
                     <div style={STYLES.content.display.container}>
                         <div style={STYLES.content.display.title}>
                             What does a <span style={STYLES.emphasis}>State</span> tree look like?
@@ -62,18 +67,6 @@ const STYLES = {
         justifyContent: 'center',
         alignItems: 'center',
         width: '90%'
-    },
-
-    title: {
-        main: {
-            fontSize: '36px'
-        }
-    },
-
-    emphasis: {
-        fontStyle: 'italic',
-        //textDecoration: 'underline',
-        color: '#23B6F1'
     },
 
     content: {
@@ -121,14 +114,7 @@ const STYLES = {
         ':hover' : {
             backgroundColor: 'rgba(255,255,0,1)',
         }
-    },
-
-    separator: {
-        borderLeft: '1px solid black',
-        marginRight: '24px',
-        marginLeft: '24px'
     }
-
 };
 
 OnboardingState.propTypes = {};

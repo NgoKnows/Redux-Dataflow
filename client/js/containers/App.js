@@ -52,11 +52,11 @@ const STYLES = {
         fontFamily     : 'Uni Sans, Serif',
         height         : '100vh',
         fontSize       : '48px',
-        width: '100%'
+        width          : '100%'
     },
     todoApp: {
-        display: 'flex',
-        justifyContent: 'space-between'
+        display        : 'flex',
+        justifyContent : 'space-between'
     }
 }
 

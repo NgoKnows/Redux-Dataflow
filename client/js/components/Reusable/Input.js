@@ -26,7 +26,11 @@ const STYLES = {
     padding: '12px'
 };
 
-Input.propTypes = {};
-Input.defaultProps = {};
+Input.propTypes = {
+    value        : PropTypes.string.isRequired,
+    placeholder  : PropTypes.string.isRequired,
+    handleChange : PropTypes.func.isRequired,
+    handleKeyUp  : PropTypes.func.isRequired
+};
 
 export default Radium(Input);

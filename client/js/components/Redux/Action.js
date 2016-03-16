@@ -38,7 +38,9 @@ class Action extends Component {
                                 </div> : null
                             }
                             <div>{'}'}</div>
-                        </div> : <span style={STYLES.noAction} key="blah">No Action is being dispatched!</span>
+                        </div>
+                            :
+                        <span style={STYLES.noAction} key="noaction">No Action is being dispatched!</span>
                     }
                 </FadeAnimation>
             </ReduxCode>

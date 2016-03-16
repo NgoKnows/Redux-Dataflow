@@ -22,7 +22,7 @@ class App extends Component {
             actions, routerActions } = this.props;
 
         return (
-            <div style={STYLES.container}>
+            <div onKeyUp={this.handleKeyUp} style={STYLES.container}>
                 <div style={STYLES.todoApp}>
                     <TodoApp
                         todos={todos}
@@ -44,6 +44,14 @@ class App extends Component {
                 </VelocityTransitionGroup>
             </div>
         );
+    }
+
+    handleKeyUp(e) {
+        const { location, routerActions } = this.props;
+
+        if (e.key === 'Escape' && location.pathname.contains('onboarding')) {
+            routerActions.push('');
+        }
     }
 }
 

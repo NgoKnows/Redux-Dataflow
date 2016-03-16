@@ -18,7 +18,7 @@ class OnboardingPage extends Component {
 
         return (
             <div>
-                <Overlay zIndex={99}>
+                <Overlay zIndex={99} handleClick={() => this.handleOverlayClick()}>
                     <div style={STYLES.infoContainer}>
                         <i
                             className="fa fa-times"
@@ -26,6 +26,7 @@ class OnboardingPage extends Component {
                             onClick={() => routerActions.push('/')}
                         />
                         <VelocityTransitionGroup
+                            onClick={(e) => e.stopPropagation()}
                             component="div"
                             style={STYLES.contentContainer}>
                             {React.cloneElement(this.props.children, {key: this.props.location.pathname})}
@@ -38,6 +39,12 @@ class OnboardingPage extends Component {
                 </Overlay>
             </div>
         );
+    }
+
+    handleOverlayClick() {
+        const { routerActions } = this.props;
+
+        routerActions.push('');
     }
 }
 

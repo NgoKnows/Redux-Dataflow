@@ -15,7 +15,7 @@ import Overlay from '../components/Reusable/Overlay'
 
 class App extends Component {
     componentDidMount() {
-        //setTimeout(() => this.props.routerActions.push('onboarding/intro'), 200);
+        setTimeout(() => this.props.routerActions.push('onboarding/intro'), 200);
     }
 
     render() {

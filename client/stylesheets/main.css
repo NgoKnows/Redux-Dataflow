@@ -71,3 +71,41 @@ span.underline {
     letter-spacing: .5px !important;
     line-height: 1.1;
 }
+
+span.rc-slider-mark-text {
+    font-family: Simplifica;
+    letter-spacing: 20px;
+}
+
+span.rc-slider-mark-text {
+    /*background-color: #23B6F1;*/
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+.rc-slider-track {
+    background-color: #23B6F1;
+}
+
+.rc-slider-dot {
+    width: 12px;
+    height: 12px;
+    top: -6px;
+    margin-left: -6px;
+    border-color: #23B6F1;
+}
+
+.rc-slider-handle {
+    width: 16px;
+    height: 16px;
+    margin-left: -8px;
+    margin-top: -8px;
+    border-color: #23B6F1;
+}
+
+.rc-slider-dot.rc-slider-dot-active {
+    width: 12px;
+    height: 12px;
+    top: -6px;
+    margin-left: -6px;
+}

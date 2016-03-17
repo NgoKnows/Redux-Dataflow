@@ -9,6 +9,7 @@ class FadeAnimation extends Component {
         return (
             <VelocityTransitionGroup
                 component="div"
+                style={{display: 'block'}}
                 enter={enterFadeAnimation}
                 leave={leaveFadeAnimation}
             >

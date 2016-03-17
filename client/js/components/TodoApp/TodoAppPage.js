@@ -10,7 +10,7 @@ import Overlay from '../Reusable/Overlay'
 
 class ToDoAppPage extends Component {
     render() {
-        const { todos, todoInput, dispatching, actions } = this.props;
+        const { todos, todoInput, dispatching, actions, stepping } = this.props;
 
         return (
             <div style={STYLES.container}>
@@ -29,7 +29,16 @@ class ToDoAppPage extends Component {
                     enter={enterFadeAnimation}
                     leave={leaveFadeAnimation}
                 >
-                    {dispatching ? <Overlay zIndex={2}> </Overlay> : null}
+                    {dispatching ?
+                        <div style={STYLES.arrows}>
+                            <i
+                                key="rightarrow"
+                                style={[STYLES.arrow, STYLES.rightArrow, STYLES.disabled(stepping)]}
+                                className="fa fa-arrow-right"
+                                onClick={() => actions.dispatchAction()}
+                            />
+                        </div> : null
+                    }
                 </VelocityTransitionGroup>
             </div>
         );
@@ -49,6 +58,44 @@ const STYLES = {
     title : {
         margin         : '12px',
         textDecoration : 'underline'
+    },
+
+    arrows: {
+        display: 'flex',
+        position: 'absolute',
+        bottom: 30,
+        color: '#23B6F1',
+        zIndex: 999
+    },
+
+    arrow: {
+        cursor: 'pointer'
+        //marginLeft: '12px'
+    },
+
+    leftArrow: {
+        marginRight: '36px'
+    },
+
+    rightArrow: {
+
+    },
+
+    disabled: (disabled) => {
+        if (disabled) {
+            return {
+                color: '#d3d3d3',
+                opacity: '0.2',
+                ':hover': {
+                    cursor: 'not-allowed'
+                },
+                ':active': {
+                    pointerEvents: 'none'
+                }
+            };
+        } else {
+            return {};
+        }
     }
 };
 

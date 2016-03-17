@@ -1,6 +1,7 @@
 import { SET_TODO_INPUT, ADD_TODO, REMOVE_TODO, TOGGLE_TODO,
     SET_TODO_INPUT_REDUX, ADD_TODO_REDUX, REMOVE_TODO_REDUX, TOGGLE_TODO_REDUX,
-    SET_DISPATCHING, SET_CURRENT_ACTION, SET_REDUCER_LINE, SET_SPEED, SET_CHANGED, SET_SECTION,
+    SET_DISPATCHING, SET_CURRENT_ACTION, SET_REDUCER_LINE,
+    SET_CHANGED, SET_SECTION, SET_AUTO, SET_SPEED, SET_CURRENT_STEP, SET_STEPPING
 } from './constants'
 
 import { combineReducers } from 'redux'
@@ -93,12 +94,15 @@ const initialState = {
     dispatching: false,
     currentAction: {},
     reducerLine: null,
-    speed: 1,
     changed: {
         todos: null,
         todoInput: false
     },
-    section: ''
+    section: '',
+    auto: false,
+    speed: 1,
+    currentStep: 1,
+    stepping: false
 }
 function redux(state = initialState, action) {
     switch(action.type) {
@@ -111,14 +115,23 @@ function redux(state = initialState, action) {
         case SET_REDUCER_LINE:
             return Object.assign({}, state, {reducerLine: action.line});
 
-        case SET_SPEED:
-            return Object.assign({}, state, {speed: action.speed});
-
         case SET_CHANGED:
             return Object.assign({}, state, {changed: action.changed});
 
         case SET_SECTION:
             return Object.assign({}, state, {section: action.section});
+
+        case SET_AUTO:
+            return Object.assign({}, state, {auto: action.auto});
+
+        case SET_SPEED:
+            return Object.assign({}, state, {speed: action.speed});
+
+        case SET_CURRENT_STEP:
+            return Object.assign({}, state, {currentStep: action.step});
+
+        case SET_STEPPING:
+            return Object.assign({}, state, {stepping: action.stepping});
 
         default:
             return state;

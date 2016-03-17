@@ -9,7 +9,7 @@ class ReduxCode extends Component {
         const { active, name } = this.props;
 
         return (
-            <div>
+            <div style={this.props.style}>
                 <div style={STYLES.headerContainer}>
                     <Underlined active={active}>
                         <div style={[STYLES.header, STYLES.active(active)]}>{name}</div>

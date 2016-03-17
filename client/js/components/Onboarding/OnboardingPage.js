@@ -10,6 +10,7 @@ import { VelocityTransitionGroup } from 'velocity-react'
 import { enterFadeAnimation, leaveFadeAnimation } from '../../animations'
 
 import Overlay from '../Reusable/Overlay'
+import Modal from '../Reusable/Modal'
 import Dots from './Dots'
 
 class OnboardingPage extends Component {
@@ -19,7 +20,7 @@ class OnboardingPage extends Component {
         return (
             <div>
                 <Overlay zIndex={99} handleClick={() => this.handleOverlayClick()}>
-                    <div style={STYLES.infoContainer}>
+                    <Modal>
                         <i
                             className="fa fa-times"
                             style={STYLES.x}
@@ -35,7 +36,7 @@ class OnboardingPage extends Component {
                             path={this.props.location.pathname}
                             routerActions={routerActions}
                         />
-                    </div>
+                    </Modal>
                 </Overlay>
             </div>
         );
@@ -49,24 +50,7 @@ class OnboardingPage extends Component {
 }
 
 const STYLES = {
-    container: {
-
-    },
-
-    infoContainer: {
-        position: 'relative',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        height: '550px',
-        width: '940px',
-        backgroundColor: 'white',
-        borderRadius: '7px',
-        boxShadow: '2px 2px 7px black',
-        padding: '24px 12px',
-        boxSizing: 'border-box'
-    },
+    container: {},
 
     contentContainer: {
         display: 'flex',

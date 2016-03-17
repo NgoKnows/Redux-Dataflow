@@ -7,6 +7,7 @@ import DevTools from 'containers/DevTools'
 import App from 'containers/App'
 import { OnboardingPage, OnboardingIntro, OnboardingState,
     OnboardingAction, OnboardingReducer } from 'components/Onboarding/index'
+import SettingsPage from 'components/Settings/SettingsPage'
 
 export default class Root extends Component {
     render() {
@@ -24,9 +25,9 @@ export default class Root extends Component {
                                 <Route path='action' component={OnboardingAction} />
                                 <Route path='reducer' component={OnboardingReducer} />
                             </Route>
+                            <Route path='settings' component={SettingsPage}/>
                         </Route>
                     </Router>
-                    <DevTools />
                 </div>
             </Provider>
         )

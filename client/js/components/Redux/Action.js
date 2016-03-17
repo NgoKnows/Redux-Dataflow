@@ -22,14 +22,18 @@ class Action extends Component {
         }
 
         return (
-            <ReduxCode active={active} name="Action">
+            <ReduxCode
+                active={active}
+                name="Action"
+                style={STYLES.container}
+            >
                 <FadeAnimation>
                     {Object.keys(currentAction).length !== 0 ?
-                        <div style={STYLES.code} key={currentAction.type + payload}>
+                        <div>
                             <div>{'{'}</div>
                             <div>
                                 <WhiteSpace tabs={1}/>
-                                <span style={STYLES.prop}>type:</span> "{currentAction.type}"
+                                <span style={STYLES.prop}>type:</span> "{currentAction.type}",
                             </div>
                             { payload ?
                                 <div>
@@ -58,6 +62,10 @@ const STYLES = {
         fontSize: '36px',
         fontFamily: 'Simplifica',
         //height: '50px'
+    },
+
+    container: {
+        height: '200px'
     }
 };
 

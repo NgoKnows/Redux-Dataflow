@@ -21,9 +21,11 @@ class Input extends Component {
 
 const STYLES = {
     width: '700px',
-    fontSize: '42px',
+    fontSize: '52px',
     fontFamily: 'inherit',
-    padding: '12px'
+    padding: '12px',
+    fontFamily: 'Simplifica',
+    letterSpacing: '2px'
 };
 
 Input.propTypes = {

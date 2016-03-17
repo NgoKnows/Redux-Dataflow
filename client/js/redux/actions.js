@@ -1,6 +1,7 @@
 import { SET_TODO_INPUT, ADD_TODO, REMOVE_TODO, TOGGLE_TODO,
-SET_TODO_INPUT_REDUX, ADD_TODO_REDUX, REMOVE_TODO_REDUX, TOGGLE_TODO_REDUX,
-SET_DISPATCHING, SET_CURRENT_ACTION, SET_REDUCER_LINE, SET_SPEED, SET_CHANGED, SET_SECTION,
+    SET_TODO_INPUT_REDUX, ADD_TODO_REDUX, REMOVE_TODO_REDUX, TOGGLE_TODO_REDUX,
+    SET_DISPATCHING, SET_CURRENT_ACTION, SET_REDUCER_LINE,
+    SET_CHANGED, SET_SECTION, SET_AUTO, SET_SPEED, SET_CURRENT_STEP, SET_STEPPING
 } from './constants'
 
 // TODO Actions
@@ -88,13 +89,6 @@ export function setReducerLine(line) {
     }
 }
 
-export function setSpeed(speed) {
-    return {
-        type: SET_SPEED,
-        speed
-    }
-}
-
 export function setChanged(changed) {
     return {
         type: SET_CHANGED,
@@ -109,6 +103,33 @@ export function setSection(section) {
     }
 }
 
+export function setAuto(auto) {
+    return {
+        type: SET_AUTO,
+        auto
+    }
+}
+
+export function setSpeed(speed) {
+    return {
+        type: SET_SPEED,
+        speed
+    }
+}
+
+export function setCurrentStep(step) {
+    return {
+        type: SET_CURRENT_STEP,
+        step
+    }
+}
+
+export function setStepping(stepping) {
+    return {
+        type: SET_STEPPING,
+        stepping
+    }
+}
 
 // Thunks
 // --------------------------------------------------

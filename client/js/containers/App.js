@@ -10,11 +10,12 @@ import { enterFadeAnimation, leaveFadeAnimation } from '../animations'
 
 import TodoApp from '../components/TodoApp/TodoAppPage'
 import Redux from '../components/Redux/ReduxPage'
+import Overlay from '../components/Reusable/Overlay'
 
 
 class App extends Component {
     componentDidMount() {
-        setTimeout(() => this.props.routerActions.push('onboarding/intro'), 200);
+        //setTimeout(() => this.props.routerActions.push('onboarding/intro'), 200);
     }
 
     render() {
@@ -29,6 +30,7 @@ class App extends Component {
                         todoInput={todoInput}
                         actions={actions}
                         dispatching={redux.dispatching}
+                        stepping={redux.stepping}
                     />
                     <Redux
                         redux={redux}
@@ -41,6 +43,22 @@ class App extends Component {
                     leave={leaveFadeAnimation}
                 >
                     {this.props.children}
+                </VelocityTransitionGroup>
+                <i
+                    key="settings"
+                    style={STYLES.settings}
+                    className="fa fa-cog"
+                    onClick={() => routerActions.push('settings')}
+                />
+                <VelocityTransitionGroup
+                    enter={enterFadeAnimation}
+                    leave={leaveFadeAnimation}
+                >
+                    {redux.dispatching ?
+                        <Overlay zIndex={2}>
+
+                        </Overlay> : null
+                    }
                 </VelocityTransitionGroup>
             </div>
         );
@@ -62,9 +80,19 @@ const STYLES = {
         fontSize       : '48px',
         width          : '100%'
     },
+
     todoApp: {
         display        : 'flex',
         justifyContent : 'space-between'
+    },
+
+    settings: {
+        position: 'absolute',
+        top: '12px',
+        left: '12px',
+        fontSize: '0.7em',
+        color: 'grey',
+        cursor: 'pointer'
     }
 }
 

@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var NpmInstallPlugin = require('npm-install-webpack-plugin')
 var ROOT_DIR = __dirname;
 
 module.exports = {
@@ -32,7 +33,8 @@ module.exports = {
     plugins: [
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
+        new webpack.NoErrorsPlugin(),
+        new NpmInstallPlugin()
     ],
 
     module: {

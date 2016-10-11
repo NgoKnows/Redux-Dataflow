@@ -10,8 +10,8 @@ import Overlay from '../Reusable/Overlay'
 
 class ToDoAppPage extends Component {
     render() {
-        const { todos, todoInput, dispatching, actions, stepping } = this.props;
-
+        const { todos, todoInput, dispatching, actions, stepping, auto } = this.props;
+        console.log(auto);
         return (
             <div style={STYLES.container}>
                 <div style={STYLES.title}>ToDo App!</div>
@@ -29,7 +29,7 @@ class ToDoAppPage extends Component {
                     enter={enterFadeAnimation}
                     leave={leaveFadeAnimation}
                 >
-                    {dispatching ?
+                    {dispatching && !auto ?
                         <div style={STYLES.arrows}>
                             <i
                                 key="rightarrow"

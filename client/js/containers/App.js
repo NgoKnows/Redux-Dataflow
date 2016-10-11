@@ -31,6 +31,7 @@ class App extends Component {
                         actions={actions}
                         dispatching={redux.dispatching}
                         stepping={redux.stepping}
+                        auto={redux.auto}
                     />
                     <Redux
                         redux={redux}
@@ -55,9 +56,7 @@ class App extends Component {
                     leave={leaveFadeAnimation}
                 >
                     {redux.dispatching ?
-                        <Overlay zIndex={2}>
-
-                        </Overlay> : null
+                        <Overlay zIndex={2}/> : null
                     }
                 </VelocityTransitionGroup>
             </div>

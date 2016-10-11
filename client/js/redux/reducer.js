@@ -99,7 +99,7 @@ const initialState = {
         todoInput: false
     },
     section: '',
-    auto: false,
+    auto: true,
     speed: 1,
     currentStep: 1,
     stepping: false

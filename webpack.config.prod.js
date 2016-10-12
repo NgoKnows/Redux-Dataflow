@@ -1,11 +1,13 @@
 var path = require('path');
 var webpack = require('webpack');
+var NpmInstallPlugin = require('npm-install-webpack-plugin')
 var ROOT_DIR = __dirname;
 
 module.exports = {
     context: ROOT_DIR,
 
     entry: [
+        'webpack-hot-middleware/client',
         path.resolve(ROOT_DIR, 'client', 'js', 'index.js')
     ],
 
@@ -15,6 +17,7 @@ module.exports = {
             react: path.join(__dirname, 'node_modules', 'react'),
             components: path.join(ROOT_DIR, 'client', 'js', 'components'),
             containers: path.join(ROOT_DIR, 'client', 'js', 'containers'),
+            reusable: path.join(ROOT_DIR, 'client', 'js', 'components', 'reusable'),
             flux: path.join(ROOT_DIR, 'client', 'js', 'redux'),
             js: path.join(ROOT_DIR, 'client', 'js'),
             images: path.join(ROOT_DIR, 'client', 'images')
@@ -28,13 +31,10 @@ module.exports = {
     },
 
     plugins: [
-        new webpack.optimize.DedupePlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.DefinePlugin({
-            'process.env': {
-                'NODE_ENV': JSON.stringify('production')
-            }
-        }),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin(),
+        new NpmInstallPlugin(),
         new webpack.optimize.UglifyJsPlugin({
             compressor: {
                 warnings: false
@@ -49,7 +49,12 @@ module.exports = {
                 loader: 'babel',
                 exclude: path.join(ROOT_DIR, 'node_modules'),
                 query: {
-                    "presets": ["es2015", "react", "stage-0"]
+                    "presets": ["es2015", "react", "stage-0"],
+                    "env": {
+                        "development": {
+                            "presets": ["react-hmre"]
+                        }
+                    }
                 }
             },
 
